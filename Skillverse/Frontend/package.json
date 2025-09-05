@@ -1,0 +1,64 @@
+{
+  "name": "skillverse-frontend",
+  "version": "1.0.0",
+  "description": "A comprehensive skill-learning platform frontend built with HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8000 --open=/index.html",
+    "dev": "live-server --port=3000 --open=/index.html --watch=assets",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o assets/css/style.min.css assets/css/*.css",
+    "minify-js": "uglifyjs assets/js/*.js -o assets/js/bundle.min.js",
+    "lint": "eslint assets/js/**/*.js",
+    "lint:fix": "eslint assets/js/**/*.js --fix",
+    "format": "prettier --write **/*.{html,css,js}",
+    "validate": "html-validate **/*.html",
+    "test": "echo 'No tests specified yet'",
+    "serve": "http-server -p 8000 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/skillverse-frontend.git"
+  },
+  "keywords": [
+    "education",
+    "learning",
+    "skills",
+    "courses",
+    "quiz",
+    "forum",
+    "marketplace",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/skillverse-frontend/issues"
+  },
+  "homepage": "https://github.com/username/skillverse-frontend#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.49.0",
+    "html-validate": "^7.17.0",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.3",
+    "uglify-js": "^3.17.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "directories": {
+    "doc": "docs"
+  }
+}

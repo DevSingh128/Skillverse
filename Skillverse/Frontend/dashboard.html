@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="welcome-text">Welcome back, <span id="dashboardUserName">User</span>!</h2>
+            <p>Continue your learning journey</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="coursesCompleted">12</div>
+                <div>Courses Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="skillsLearned">24</div>
+                <div>Skills Learned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="certificatesEarned">8</div>
+                <div>Certificates</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="forumPosts">156</div>
+                <div>Forum Posts</div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Available Courses</h3>
+                </div>
+                <div class="card-body" id="availableCourses">
+                    <div class="course-card" onclick="openCourse('web-dev')">
+                        <i class="fas fa-code course-icon"></i>
+                        <div>
+                            <h4>Web Development</h4>
+                            <p>Learn HTML, CSS, JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="course-card" onclick="openCourse('data-science')">
+                        <i class="fas fa-chart-bar course-icon"></i>
+                        <div>
+                            <h4>Data Science</h4>
+                            <p>Python, Machine Learning</p>
+                        </div>
+                    </div>
+                    <div class="course-card" onclick="openCourse('design')">
+                        <i class="fas fa-palette course-icon"></i>
+                        <div>
+                            <h4>UI/UX Design</h4>
+                            <p>Design principles, Figma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">My Skills</h3>
+                </div>
+                <div class="card-body" id="userSkills">
+                    <div class="skill-badge">JavaScript <span class="skill-level">Advanced</span></div>
+                    <div class="skill-badge">Python <span class="skill-level">Intermediate</span></div>
+                    <div class="skill-badge">React <span class="skill-level">Advanced</span></div>
+                    <div class="skill-badge">Node.js <span class="skill-level">Intermediate</span></div>
+                    <div class="skill-badge">CSS <span class="skill-level">Advanced</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Forum Activity</h3>
+                </div>
+                <div class="card-body" id="recentForumActivity">
+                    <div class="forum-post">
+                        <div class="post-header">
+                            <span class="post-author">John Doe</span>
+                            <span class="post-date">2 hours ago</span>
+                        </div>
+                        <div class="post-content">
+                            How do I implement authentication in React?
+                        </div>
+                    </div>
+                    <div class="forum-post">
+                        <div class="post-header">
+                            <span class="post-author">Jane Smith</span>
+                            <span class="post-date">5 hours ago</span>
+                        </div>
+                        <div class="post-content">
+                            Best practices for API design?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeCourse()">&times;</button>
+            <div id="courseContent">
+                <!-- Course content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/course.js"></script>
+</body>
+</html>

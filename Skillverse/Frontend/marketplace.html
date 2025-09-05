@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Marketplace - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="welcome-text">Skill Marketplace</h2>
+            <p>Offer your skills or find skills you need</p>
+            <button class="btn btn-primary" onclick="createOffer()">
+                <i class="fas fa-plus"></i> Create Offer
+            </button>
+        </div>
+
+        <div class="marketplace-filters">
+            <div class="filter-categories">
+                <button class="category-btn active" onclick="filterByCategory('all')">All</button>
+                <button class="category-btn" onclick="filterByCategory('development')">Development</button>
+                <button class="category-btn" onclick="filterByCategory('design')">Design</button>
+                <button class="category-btn" onclick="filterByCategory('marketing')">Marketing</button>
+                <button class="category-btn" onclick="filterByCategory('data')">Data Science</button>
+                <button class="category-btn" onclick="filterByCategory('business')">Business</button>
+            </div>
+            <div class="search-filter">
+                <input type="text" placeholder="Search skills..." id="skillSearch">
+                <select id="priceFilter">
+                    <option value="all">All Prices</option>
+                    <option value="0-25">$0 - $25/hr</option>
+                    <option value="25-50">$25 - $50/hr</option>
+                    <option value="50-100">$50 - $100/hr</option>
+                    <option value="100+">$100+/hr</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="content-grid" id="marketplaceOffers">
+            <div class="card marketplace-card">
+                <div class="card-header">
+                    <h3 class="card-title">Web Development Mentoring</h3>
+                    <div class="provider-rating">
+                        <i class="fas fa-star"></i> 4.8
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="provider-info">
+                        <img src="https://via.placeholder.com/50" alt="Provider" class="provider-avatar">
+                        <div>
+                            <h4>Sarah Wilson</h4>
+                            <p>Senior Full-Stack Developer</p>
+                        </div>
+                    </div>
+                    <p class="offer-description">I offer 1-on-1 web development mentoring sessions covering modern frameworks and best practices.</p>
+                    <div class="skills-offered">
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">MongoDB</span>
+                    </div>
+                    <div class="offer-details">
+                        <div class="price">$50/hour</div>
+                        <div class="availability">Available</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="contactProvider(1)">
+                        <i class="fas fa-message"></i> Contact
+                    </button>
+                </div>
+            </div>
+
+            <div class="card marketplace-card">
+                <div class="card-header">
+                    <h3 class="card-title">Python Data Analysis Help</h3>
+                    <div class="provider-rating">
+                        <i class="fas fa-star"></i> 4.9
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="provider-info">
+                        <img src="https://via.placeholder.com/50" alt="Provider" class="provider-avatar">
+                        <div>
+                            <h4>David Chen</h4>
+                            <p>Data Scientist</p>
+                        </div>
+                    </div>
+                    <p class="offer-description">Need help with data analysis projects using Python, pandas, and machine learning libraries.</p>
+                    <div class="skills-offered">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Pandas</span>
+                        <span class="skill-badge">NumPy</span>
+                        <span class="skill-badge">Scikit-learn</span>
+                    </div>
+                    <div class="offer-details">
+                        <div class="price">$40/hour</div>
+                        <div class="availability">Busy</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="contactProvider(2)">
+                        <i class="fas fa-message"></i> Contact
+                    </button>
+                </div>
+            </div>
+
+            <div class="card marketplace-card">
+                <div class="card-header">
+                    <h3 class="card-title">UI/UX Design Consultation</h3>
+                    <div class="provider-rating">
+                        <i class="fas fa-star"></i> 4.7
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="provider-info">
+                        <img src="https://via.placeholder.com/50" alt="Provider" class="provider-avatar">
+                        <div>
+                            <h4>Emma Davis</h4>
+                            <p>UX/UI Designer</p>
+                        </div>
+                    </div>
+                    <p class="offer-description">Professional UI/UX design consultation and feedback for web and mobile applications.</p>
+                    <div class="skills-offered">
+                        <span class="skill-badge">UI Design</span>
+                        <span class="skill-badge">UX Research</span>
+                        <span class="skill-badge">Figma</span>
+                        <span class="skill-badge">Prototyping</span>
+                    </div>
+                    <div class="offer-details">
+                        <div class="price">$60/hour</div>
+                        <div class="availability">Available</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="contactProvider(3)">
+                        <i class="fas fa-message"></i> Contact
+                    </button>
+                </div>
+            </div>
+
+            <div class="card marketplace-card">
+                <div class="card-header">
+                    <h3 class="card-title">Digital Marketing Strategy</h3>
+                    <div class="provider-rating">
+                        <i class="fas fa-star"></i> 4.6
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="provider-info">
+                        <img src="https://via.placeholder.com/50" alt="Provider" class="provider-avatar">
+                        <div>
+                            <h4>Alex Rodriguez</h4>
+                            <p>Marketing Specialist</p>
+                        </div>
+                    </div>
+                    <p class="offer-description">Help with digital marketing strategies, SEO, and social media campaigns.</p>
+                    <div class="skills-offered">
+                        <span class="skill-badge">SEO</span>
+                        <span class="skill-badge">Social Media</span>
+                        <span class="skill-badge">Google Ads</span>
+                        <span class="skill-badge">Analytics</span>
+                    </div>
+                    <div class="offer-details">
+                        <div class="price">$45/hour</div>
+                        <div class="availability">Available</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="contactProvider(4)">
+                        <i class="fas fa-message"></i> Contact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Offer Modal -->
+    <div id="createOfferModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeCreateOffer()">&times;</button>
+            <div class="offer-form">
+                <h2>Create New Skill Offer</h2>
+                <form id="createOfferForm">
+                    <div class="form-group">
+                        <label class="form-label">Service Title</label>
+                        <input type="text" class="form-input" id="offerTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-input" id="offerDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Skills Offered (comma-separated)</label>
+                        <input type="text" class="form-input" id="offerSkills" 
+                               placeholder="JavaScript, React, Node.js">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Hourly Rate ($)</label>
+                        <input type="number" class="form-input" id="offerRate" min="5" max="500">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-input" id="offerCategory">
+                            <option value="development">Development</option>
+                            <option value="design">Design</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="data">Data Science</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Create Offer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/marketplace.js"></script>
+</body>
+</html>

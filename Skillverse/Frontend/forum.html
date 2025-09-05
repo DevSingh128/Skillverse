@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/forum.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="welcome-text">Community Forum</h2>
+            <p>Ask questions, share knowledge, help others</p>
+            <button class="btn btn-primary" onclick="createNewPost()">
+                <i class="fas fa-plus"></i> New Post
+            </button>
+        </div>
+
+        <div class="forum-filters">
+            <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterPosts('all')">All Posts</button>
+                <button class="filter-tab" onclick="filterPosts('questions')">Questions</button>
+                <button class="filter-tab" onclick="filterPosts('discussions')">Discussions</button>
+                <button class="filter-tab" onclick="filterPosts('tutorials')">Tutorials</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search posts..." id="searchInput">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="forumPosts">
+            <div class="forum-post">
+                <div class="post-header">
+                    <div class="post-author-info">
+                        <img src="https://via.placeholder.com/40" alt="Avatar" class="author-avatar">
+                        <div>
+                            <span class="post-author">John Doe</span>
+                            <span class="post-date">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Authentication</span>
+                    </div>
+                </div>
+                <h3 class="post-title">How to implement user authentication in React?</h3>
+                <div class="post-content">
+                    I'm working on a React app and need to implement user authentication. What's the best approach for handling login/logout functionality and protecting routes?
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="likePost(1)">
+                        <i class="fas fa-thumbs-up"></i> 12
+                    </button>
+                    <button class="action-btn" onclick="replyToPost(1)">
+                        <i class="fas fa-reply"></i> 5 Replies
+                    </button>
+                    <button class="action-btn" onclick="sharePost(1)">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="post-header">
+                    <div class="post-author-info">
+                        <img src="https://via.placeholder.com/40" alt="Avatar" class="author-avatar">
+                        <div>
+                            <span class="post-author">Jane Smith</span>
+                            <span class="post-date">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">API</span>
+                        <span class="tag">Best Practices</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Best practices for API design</h3>
+                <div class="post-content">
+                    What are some best practices when designing RESTful APIs? Looking for advice on naming conventions, error handling, and security.
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="likePost(2)">
+                        <i class="fas fa-thumbs-up"></i> 8
+                    </button>
+                    <button class="action-btn" onclick="replyToPost(2)">
+                        <i class="fas fa-reply"></i> 3 Replies
+                    </button>
+                    <button class="action-btn" onclick="sharePost(2)">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <div class="post-header">
+                    <div class="post-author-info">
+                        <img src="https://via.placeholder.com/40" alt="Avatar" class="author-avatar">
+                        <div>
+                            <span class="post-author">Mike Johnson</span>
+                            <span class="post-date">12 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="post-tags">
+                        <span class="tag">Database</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                </div>
+                <h3 class="post-title">Database optimization tips</h3>
+                <div class="post-content">
+                    Looking for tips to optimize database queries and improve performance. Any recommendations for indexing strategies?
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="likePost(3)">
+                        <i class="fas fa-thumbs-up"></i> 15
+                    </button>
+                    <button class="action-btn" onclick="replyToPost(3)">
+                        <i class="fas fa-reply"></i> 7 Replies
+                    </button>
+                    <button class="action-btn" onclick="sharePost(3)">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Post Modal -->
+    <div id="newPostModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeNewPost()">&times;</button>
+            <div class="new-post-form">
+                <h2>Create New Post</h2>
+                <form id="newPostForm">
+                    <div class="form-group">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-input" id="postTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Content</label>
+                        <textarea class="form-input" id="postContent" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tags (comma-separated)</label>
+                        <input type="text" class="form-input" id="postTags" 
+                               placeholder="javascript, react, web-development">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Post Type</label>
+                        <select class="form-input" id="postType">
+                            <option value="question">Question</option>
+                            <option value="discussion">Discussion</option>
+                            <option value="tutorial">Tutorial</option>
+                            <option value="showcase">Showcase</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Post
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forum.js"></script>
+</body>
+</html>

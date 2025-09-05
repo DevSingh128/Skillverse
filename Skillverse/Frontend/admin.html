@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="welcome-text">Admin Dashboard</h2>
+            <p>Manage users, courses, and platform settings</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalUsers">1,247</div>
+                <div>Total Users</div>
+                <div class="stat-change positive">+12% this month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalCourses">45</div>
+                <div>Total Courses</div>
+                <div class="stat-change positive">+3 new</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="activeUsers">892</div>
+                <div>Active Users</div>
+                <div class="stat-change positive">+8% this week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalRevenue">$24,567</div>
+                <div>Total Revenue</div>
+                <div class="stat-change positive">+15% this month</div>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showAdminTab('users')">Users</button>
+            <button class="tab-btn" onclick="showAdminTab('courses')">Courses</button>
+            <button class="tab-btn" onclick="showAdminTab('forums')">Forums</button>
+            <button class="tab-btn" onclick="showAdminTab('marketplace')">Marketplace</button>
+            <button class="tab-btn" onclick="showAdminTab('analytics')">Analytics</button>
+        </div>
+
+        <div class="admin-content">
+            <!-- Users Tab -->
+            <div id="usersTab" class="admin-tab-content active">
+                <div class="tab-header">
+                    <h3>User Management</h3>
+                    <div class="tab-actions">
+                        <input type="text" placeholder="Search users..." class="search-input">
+                        <select class="filter-select">
+                            <option value="all">All Users</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="exportUsers()">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                                <th>Courses</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <img src="https://via.placeholder.com/32" alt="Avatar">
+                                        <span>John Doe</span>
+                                    </div>
+                                </td>
+                                <td>john.doe@example.com</td>
+                                <td>Jan 15, 2024</td>
+                                <td>12</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="action-btn" onclick="viewUser(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn" onclick="editUser(1)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn danger" onclick="suspendUser(1)">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <img src="https://via.placeholder.com/32" alt="Avatar">
+                                        <span>Jane Smith</span>
+                                    </div>
+                                </td>
+                                <td>jane.smith@example.com</td>
+                                <td>Feb 3, 2024</td>
+                                <td>8</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="action-btn" onclick="viewUser(2)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn" onclick="editUser(2)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn danger" onclick="suspendUser(2)">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Courses Tab -->
+            <div id="coursesTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3>Course Management</h3>
+                    <div class="tab-actions">
+                        <button class="btn btn-primary" onclick="createCourse()">
+                            <i class="fas fa-plus"></i> Add Course
+                        </button>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <div class="admin-course-card">
+                        <div class="course-thumbnail">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="course-details">
+                            <h4>Web Development Fundamentals</h4>
+                            <p>1,234 enrolled • 4.8 rating</p>
+                            <div class="course-actions">
+                                <button class="btn btn-sm btn-secondary" onclick="editCourse(1)">Edit</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteCourse(1)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analyticsTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3>Platform Analytics</h3>
+                </div>
+                <div class="analytics-charts">
+                    <div class="chart-container">
+                        <h4>User Growth</h4>
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4>Course Completion Rates</h4>
+                        <canvas id="completionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

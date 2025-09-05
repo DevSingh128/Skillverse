@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/course.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h2 id="quizTitle">Course Quiz</h2>
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                <span id="questionCounter">Question 1 of 5</span>
+            </div>
+        </div>
+
+        <div id="quizContent">
+            <div class="question active" id="question-0">
+                <h3 class="question-title">What does HTML stand for?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(0, 0)">
+                        <span class="option-letter">A</span>
+                        Hyper Text Markup Language
+                    </div>
+                    <div class="option" onclick="selectOption(0, 1)">
+                        <span class="option-letter">B</span>
+                        High Tech Modern Language
+                    </div>
+                    <div class="option" onclick="selectOption(0, 2)">
+                        <span class="option-letter">C</span>
+                        Home Tool Markup Language
+                    </div>
+                    <div class="option" onclick="selectOption(0, 3)">
+                        <span class="option-letter">D</span>
+                        Hyperlink and Text Markup Language
+                    </div>
+                </div>
+            </div>
+
+            <div class="question" id="question-1">
+                <h3 class="question-title">Which CSS property is used for changing the background color?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(1, 0)">
+                        <span class="option-letter">A</span>
+                        color
+                    </div>
+                    <div class="option" onclick="selectOption(1, 1)">
+                        <span class="option-letter">B</span>
+                        bgcolor
+                    </div>
+                    <div class="option" onclick="selectOption(1, 2)">
+                        <span class="option-letter">C</span>
+                        background-color
+                    </div>
+                    <div class="option" onclick="selectOption(1, 3)">
+                        <span class="option-letter">D</span>
+                        background
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-navigation">
+            <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-primary" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                <i class="fas fa-check"></i> Submit Quiz
+            </button>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultsModal" class="modal">
+        <div class="modal-content">
+            <div class="quiz-results">
+                <div class="result-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>Quiz Completed!</h2>
+                <div class="score-display">
+                    <span class="score-number" id="finalScore">85%</span>
+                    <p>You scored <span id="correctAnswers">4</span> out of <span id="totalQuestions">5</span> questions correctly</p>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-primary" onclick="getCertificate()">
+                        <i class="fas fa-certificate"></i> Get Certificate
+                    </button>
+                    <button class="btn btn-secondary" onclick="retakeQuiz()">
+                        <i class="fas fa-redo"></i> Retake Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/course.js"></script>
+</body>
+</html>

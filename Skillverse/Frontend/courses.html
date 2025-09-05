@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/course.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="course-container">
+        <div class="course-header">
+            <button class="btn-back" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </button>
+            <h1 id="courseTitle">Web Development Fundamentals</h1>
+            <p id="courseDescription">Learn the basics of web development including HTML, CSS, and JavaScript.</p>
+        </div>
+
+        <div class="course-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe id="courseVideo" width="100%" height="400" 
+                            src="https://www.youtube.com/embed/UB1O30fR-EE" 
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-controls">
+                    <button class="btn btn-primary" onclick="startQuiz()">
+                        <i class="fas fa-question-circle"></i> Take Quiz
+                    </button>
+                    <button class="btn btn-secondary" onclick="enrollCourse()">
+                        <i class="fas fa-bookmark"></i> Enroll in Course
+                    </button>
+                </div>
+            </div>
+
+            <div class="modules-section">
+                <h3>Course Modules</h3>
+                <div id="courseModules">
+                    <div class="module-card" onclick="startModule(0)">
+                        <i class="fas fa-play module-icon"></i>
+                        <div>
+                            <h4>Module 1: HTML Structure and Semantics</h4>
+                            <p>Learn the foundation of web markup</p>
+                        </div>
+                        <div class="module-status completed">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="module-card" onclick="startModule(1)">
+                        <i class="fas fa-play module-icon"></i>
+                        <div>
+                            <h4>Module 2: CSS Styling and Layout</h4>
+                            <p>Master visual design and positioning</p>
+                        </div>
+                        <div class="module-status completed">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="module-card" onclick="startModule(2)">
+                        <i class="fas fa-play module-icon"></i>
+                        <div>
+                            <h4>Module 3: JavaScript Fundamentals</h4>
+                            <p>Add interactivity to your websites</p>
+                        </div>
+                        <div class="module-status current">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="module-card" onclick="startModule(3)">
+                        <i class="fas fa-play module-icon"></i>
+                        <div>
+                            <h4>Module 4: DOM Manipulation</h4>
+                            <p>Dynamic content and user interaction</p>
+                        </div>
+                        <div class="module-status">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/course.js"></script>
+</body>
+</html>

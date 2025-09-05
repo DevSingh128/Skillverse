@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - SkillVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="navbar-container"></div>
+
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="welcome-text">My Profile</h2>
+            <p>Manage your account and view your achievements</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="card profile-card">
+                <div class="card-header">
+                    <h3 class="card-title">Profile Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-container">
+                            <img src="https://via.placeholder.com/100" alt="Profile" id="profileAvatar" class="profile-avatar">
+                            <button class="avatar-upload-btn" onclick="uploadAvatar()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" id="profileName" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" id="profileEmail" value="john.doe@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Job Title</label>
+                            <input type="text" class="form-input" id="profileJobTitle" value="Full Stack Developer">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-input" id="profileLocation" value="San Francisco, CA">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Bio</label>
+                            <textarea class="form-input" id="profileBio" rows="4">Passionate developer with 5+ years of experience in web development. Love learning new technologies and helping others grow their skills.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Website/Portfolio</label>
+                            <input type="url" class="form-input" id="profileWebsite" value="https://johndoe.dev">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">LinkedIn</label>
+                            <input type="url" class="form-input" id="profileLinkedIn" value="https://linkedin.com/in/johndoe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">GitHub</label>
+                            <input type="url" class="form-input" id="profileGitHub" value="https://github.com/johndoe">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Update Profile
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">My Skills</h3>
+                    <button class="btn btn-secondary btn-sm" onclick="editSkills()">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="skills-grid" id="userSkillsGrid">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level advanced">Advanced</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React</span>
+                                <span class="skill-level advanced">Advanced</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Node.js</span>
+                                <span class="skill-level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Certificates</h3>
+                </div>
+                <div class="card-body" id="userCertificates">
+                    <div class="certificate-item">
+                        <div class="certificate-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h4>Web Development Fundamentals</h4>
+                            <p>Completed: January 2024</p>
+                            <p>Score: 95%</p>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn btn-sm btn-primary" onclick="viewCertificate(1)">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="btn btn-sm btn-secondary" onclick="downloadCertificate(1)">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="certificate-item">
+                        <div class="certificate-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h4>JavaScript Advanced Concepts</h4>
+                            <p>Completed: March 2024</p>
+                            <p>Score: 88%</p>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn btn-sm btn-primary" onclick="viewCertificate(2)">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="btn btn-sm btn-secondary" onclick="downloadCertificate(2)">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="certificate-item">
+                        <div class="certificate-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h4>React Development Mastery</h4>
+                            <p>Completed: May 2024</p>
+                            <p>Score: 92%</p>
+                        </div>
+                        <div class="certificate-actions">
+                            <button class="btn btn-sm btn-primary" onclick="viewCertificate(3)">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="btn btn-sm btn-secondary" onclick="downloadCertificate(3)">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Learning Progress</h3>
+                </div>
+                <div class="card-body">
+                    <div class="progress-overview">
+                        <div class="progress-stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Courses Completed</div>
+                        </div>
+                        <div class="progress-stat">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Hours Learned</div>
+                        </div>
+                        <div class="progress-stat">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Certificates</div>
+                        </div>
+                    </div>
+                    
+                    <div class="current-courses">
+                        <h4>Current Courses</h4>
+                        <div class="course-progress-item">
+                            <div class="course-info">
+                                <span class="course-name">Data Science with Python</span>
+                                <span class="course-completion">60% Complete</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="course-progress-item">
+                            <div class="course-info">
+                                <span class="course-name">UI/UX Design Principles</span>
+                                <span class="course-completion">25% Complete</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Account Settings</h3>
+                </div>
+                <div class="card-body">
+                    <div class="settings-section">
+                        <h4>Privacy Settings</h4>
+                        <div class="setting-item">
+                            <label class="setting-label">
+                                <input type="checkbox" id="profilePublic" checked>
+                                Make profile public
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">
+                                <input type="checkbox" id="showSkills" checked>
+                                Show skills on profile
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">
+                                <input type="checkbox" id="allowMessages" checked>
+                                Allow direct messages
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h4>Notifications</h4>
+                        <div class="setting-item">
+                            <label class="setting-label">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                Email notifications
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">
+                                <input type="checkbox" id="courseUpdates" checked>
+                                Course updates
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">
+                                <input type="checkbox" id="forumNotifications">
+                                Forum notifications
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h4>Account Actions</h4>
+                        <button class="btn btn-secondary" onclick="changePassword()">
+                            <i class="fas fa-key"></i> Change Password
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportData()">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                        <button class="btn btn-danger" onclick="deleteAccount()">
+                            <i class="fas fa-trash"></i> Delete Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate View Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content certificate-modal">
+            <button class="close-modal" onclick="closeCertificateModal()">&times;</button>
+            <div id="certificateDisplay">
+                <!-- Certificate will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
