@@ -20,6 +20,8 @@ SkillVerse is an innovative, community-driven e-learning platform designed to ma
 - Structured courses with **videos, quizzes, notes, projects**, and **certificates**.  
 - **Progress tracking** and interactive lectures.
 
+
+(FUTURE UPDATES AND UPCOMING FEATURES)
 ### 💼 Skill Wallet
 - List your **current skills** and **skills you want to learn**.  
 - Showcase your expertise and connect with learners.
@@ -31,6 +33,7 @@ SkillVerse is an innovative, community-driven e-learning platform designed to ma
 ### 💬 Community Forum
 - Collaborate with other learners through **Q&A**, **group discussions**, and **study groups**.
 
+(ONLY FOR ADMIN)
 ### 🛠️ Admin Dashboard
 - Manage users, courses, analytics, and reported content.  
 - View platform statistics and control content quality.
