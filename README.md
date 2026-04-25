@@ -2,6 +2,8 @@
 
 SkillVerse is an innovative, community-driven e-learning platform designed to make learning **affordable**, **collaborative**, and **practical**. It bridges the gap between traditional e-learning and real-world skill exchange through peer-to-peer mentorship and gamified experiences.
 
+
+now this website is available on : "https://skillverse-8ykr.onrender.com" 
 ---
 
 ## 🚀 Objectives
